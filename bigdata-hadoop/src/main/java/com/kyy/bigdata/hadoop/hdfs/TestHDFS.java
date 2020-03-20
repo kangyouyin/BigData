@@ -21,7 +21,7 @@ public class TestHDFS {
     @Before
     public void conn() throws IOException, InterruptedException {
         conf = new Configuration(true);
-        fs = FileSystem.get(URI.create("hdfs://mycluster/"), conf, "god");
+        fs = FileSystem.get(URI.create("hdfs://mycluster/"), conf, "root");
     }
 
     @Test
@@ -53,21 +53,21 @@ public class TestHDFS {
      */
     @Test
     public void upload() throws Exception {
-//        BufferedInputStream input = new BufferedInputStream(new FileInputStream(new File("/Users/kangyouyin/tmp/file/test.txt")));
-//        Path path = new Path("kyy/out2.txt");
-//        FSDataOutputStream output = fs.create(path);
-//        System.out.println("1!");
-//        IOUtils.copyBytes(input, output, conf, true);
-//        System.out.println("success!");
-        BufferedInputStream input = null;
-        FSDataOutputStream output = null;
-
-        input = new BufferedInputStream(new FileInputStream(new File("/Users/kangyouyin/tmp/file/test.txt")));
-        Path outfile = new Path("/msb/out.txt");
-        output = fs.create(outfile);
+        BufferedInputStream input = new BufferedInputStream(new FileInputStream(new File("/Users/kangyouyin/tmp/file/test.txt")));
+        Path path = new Path("kyy/out.txt");
+        FSDataOutputStream output = fs.create(path);
         System.out.println("1!");
         IOUtils.copyBytes(input, output, conf, true);
         System.out.println("success!");
+//        BufferedInputStream input = null;
+//        FSDataOutputStream output = null;
+//
+//        input = new BufferedInputStream(new FileInputStream(new File("/Users/kangyouyin/tmp/file/test.txt")));
+//        Path outfile = new Path("/msb/out.txt");
+//        output = fs.create(outfile);
+//        System.out.println("1!");
+//        IOUtils.copyBytes(input, output, conf, true);
+//        System.out.println("success!");
 
     }
 
@@ -83,7 +83,7 @@ public class TestHDFS {
 
         FSDataInputStream in = fs.open(file);
         System.out.println("start——————");
-        in.seek(1);
+        in.seek(5);
         System.out.println((char)in.readByte());
         System.out.println((char)in.readByte());
         System.out.println((char)in.readByte());

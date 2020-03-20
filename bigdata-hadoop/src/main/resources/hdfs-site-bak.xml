@@ -42,25 +42,25 @@
     </property>
     <property>
         <name>dfs.namenode.rpc-address.mycluster.nn1</name>
-        <value>node01:8020</value>
+        <value>master01:8020</value>
     </property>
     <property>
         <name>dfs.namenode.rpc-address.mycluster.nn2</name>
-        <value>node02:8020</value>
+        <value>master02:8020</value>
     </property>
     <property>
         <name>dfs.namenode.http-address.mycluster.nn1</name>
-        <value>node01:50070</value>
+        <value>master01:50070</value>
     </property>
     <property>
         <name>dfs.namenode.http-address.mycluster.nn2</name>
-        <value>node02:50070</value>
+        <value>master02:50070</value>
     </property>
 
     #以下是JN在哪里启动，数据存那个磁盘
     <property>
         <name>dfs.namenode.shared.edits.dir</name>
-        <value>qjournal://node01:8485;node02:8485;node03:8485/mycluster</value>
+        <value>qjournal://master01:8485;master02:8485;node01:8485/mycluster</value>
     </property>
     <property>
         <name>dfs.journalnode.edits.dir</name>
@@ -78,7 +78,7 @@
     </property>
     <property>
         <name>dfs.ha.fencing.ssh.private-key-files</name>
-        <value>/root/.ssh/id_rsa</value>
+        <value>/home/god/.ssh/id_rsa</value>
     </property>
 
     #开启自动化： 启动zkfc
